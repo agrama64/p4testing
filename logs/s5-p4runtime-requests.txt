@@ -1,12 +1,12 @@
 
-[2025-01-25 07:14:07.436] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+[2025-01-25 07:14:07.452] /p4.v1.P4Runtime/SetForwardingPipelineConfig
 ---
 Message too long (16289 bytes)! Skipping log...
 ---
 
-[2025-01-25 07:14:07.441] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.456] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -26,9 +26,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.442] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.457] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -49,7 +49,7 @@ updates {
           action_id: 28792405
           params {
             param_id: 1
-            value: "\010\000\000\000\001\021"
+            value: "\010\000\000\000\001\000"
           }
           params {
             param_id: 2
@@ -62,9 +62,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.443] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.458] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -85,7 +85,7 @@ updates {
           action_id: 28792405
           params {
             param_id: 1
-            value: "\010\000\000\000\002\""
+            value: "\010\000\000\000\002\000"
           }
           params {
             param_id: 2
@@ -98,9 +98,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.444] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.459] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -134,9 +134,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.445] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.459] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -170,9 +170,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.445] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.460] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -197,7 +197,7 @@ updates {
           }
           params {
             param_id: 2
-            value: "\000\002"
+            value: "\000\003"
           }
         }
       }
@@ -206,9 +206,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.446] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.461] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -233,7 +233,7 @@ updates {
           }
           params {
             param_id: 2
-            value: "\000\002"
+            value: "\000\003"
           }
         }
       }
@@ -242,9 +242,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.447] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.462] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -269,7 +269,7 @@ updates {
           }
           params {
             param_id: 2
-            value: "\000\002"
+            value: "\000\003"
           }
         }
       }
@@ -278,9 +278,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.448] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.463] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -305,7 +305,7 @@ updates {
           }
           params {
             param_id: 2
-            value: "\000\002"
+            value: "\000\003"
           }
         }
       }
@@ -314,9 +314,9 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.448] /p4.v1.P4Runtime/Write
+[2025-01-25 07:14:07.464] /p4.v1.P4Runtime/Write
 ---
-device_id: 3
+device_id: 4
 election_id {
   low: 1
 }
@@ -341,7 +341,7 @@ updates {
           }
           params {
             param_id: 2
-            value: "\000\002"
+            value: "\000\003"
           }
         }
       }
