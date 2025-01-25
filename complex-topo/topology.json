@@ -83,26 +83,26 @@
         "s3": {
             "runtime_json": "complex-topo/s3-runtime.json"
         },
-        "r1": {
-            "runtime_json": "complex-topo/r1-runtime.json"
+        "s4": {
+            "runtime_json": "complex-topo/s4-runtime.json"
         },
-        "r2": {
-            "runtime_json": "complex-topo/r2-runtime.json"
+        "s5": {
+            "runtime_json": "complex-topo/s5-runtime.json"
         },
-        "r3": {
-            "runtime_json": "complex-topo/r3-runtime.json"
+        "s6": {
+            "runtime_json": "complex-topo/s6-runtime.json"
         },
-        "r4": {
-            "runtime_json": "complex-topo/r4-runtime.json"
+        "s7": {
+            "runtime_json": "complex-topo/s7-runtime.json"
         },
-        "l1": {
-            "runtime_json": "complex-topo/l1-runtime.json"
+        "s8": {
+            "runtime_json": "complex-topo/s8-runtime.json"
         },
-        "l2": {
-            "runtime_json": "complex-topo/l2-runtime.json"
+        "s9": {
+            "runtime_json": "complex-topo/s9-runtime.json"
         },
-        "l3": {
-            "runtime_json": "complex-topo/l3-runtime.json"
+        "s10": {
+            "runtime_json": "complex-topo/s10-runtime.json"
         }
     },
     "links": [
@@ -116,18 +116,18 @@
         ],
         [
             "s1-p3",
-            "r1-p1"
+            "s4-p1"
         ],
         [
-            "r1-p2",
-            "r2-p1"
+            "s4-p2",
+            "s5-p1"
         ],
         [
-            "r2-p2",
-            "r3-p1"
+            "s5-p2",
+            "s6-p1"
         ],
         [
-            "r3-p2",
+            "s6-p2",
             "s2-p3"
         ],
         [
@@ -139,41 +139,41 @@
             "s2-p2"
         ],
         [
-            "r2-p3",
-            "r4-p1"
+            "s5-p3",
+            "s7-p1"
         ],
-        ["r4-p2", "s3-p1"],
+        ["s7-p2", "s3-p1"],
         [
             "h5",
             "s3-p2"
         ],
         [
-            "r4-p3",
-            "l1-p1"
+            "s7-p3",
+            "s8-p1"
         ],
         [
-            "l1-p2",
-            "l2-p1"
+            "s8-p2",
+            "s9-p1"
         ],
         [
             "h6",
-            "l2-p2"
+            "s9-p2"
         ],
         [
             "h7",
-            "l2-p3"
+            "s9-p3"
         ],
         [
-            "l1-p3",
-            "l3-p1"
+            "s8-p3",
+            "s10-p1"
         ],
         [
             "h8",
-            "l3-p2"
+            "s10-p2"
         ],
         [
             "h9",
-            "l3-p3"
+            "s10-p3"
         ]
     ]
 }
