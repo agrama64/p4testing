@@ -1,0 +1,175 @@
+{
+    "hosts": {
+        "h1": {
+            "ip": "10.0.1.1/24",
+            "mac": "08:00:00:00:01:11",
+            "commands": [
+                "route add default gw 10.0.1.10 dev eth0",
+                "arp -i eth0 -s 10.0.1.10 08:00:00:00:01:00"
+            ]
+        },
+        "h2": {
+            "ip": "10.0.2.2/24",
+            "mac": "08:00:00:00:02:22",
+            "commands": [
+                "route add default gw 10.0.2.20 dev eth0",
+                "arp -i eth0 -s 10.0.2.20 08:00:00:00:02:00"
+            ]
+        },
+        "h3": {
+            "ip": "10.0.3.3/24",
+            "mac": "08:00:00:00:03:33",
+            "commands": [
+                "route add default gw 10.0.3.30 dev eth0",
+                "arp -i eth0 -s 10.0.3.30 08:00:00:00:03:00"
+            ]
+        },
+        "h4": {
+            "ip": "10.0.4.4/24",
+            "mac": "08:00:00:00:04:44",
+            "commands": [
+                "route add default gw 10.0.4.40 dev eth0",
+                "arp -i eth0 -s 10.0.4.40 08:00:00:00:04:00"
+            ]
+        },
+        "h5": {
+            "ip": "8.8.8.8/24",
+            "mac": "08:00:00:00:05:55",
+            "commands": [
+                "route add default gw 8.8.8.10 dev eth0",
+                "arp -i eth0 -s 8.8.8.10 08:00:00:00:05:00"
+            ]
+        },
+        "h6": {
+            "ip": "10.0.6.6/24",
+            "mac": "08:00:00:00:06:66",
+            "commands": [
+                "route add default gw 10.0.6.60 dev eth0",
+                "arp -i eth0 -s 10.0.6.60 08:00:00:00:06:00"
+            ]
+        },
+        "h7": {
+            "ip": "10.0.7.7/24",
+            "mac": "08:00:00:00:07:77",
+            "commands": [
+                "route add default gw 10.0.7.70 dev eth0",
+                "arp -i eth0 -s 10.0.7.70 08:00:00:00:07:00"
+            ]
+        },
+        "h8": {
+            "ip": "10.0.8.8/24",
+            "mac": "08:00:00:00:08:88",
+            "commands": [
+                "route add default gw 10.0.8.80 dev eth0",
+                "arp -i eth0 -s 10.0.8.80 08:00:00:00:08:00"
+            ]
+        },
+        "h9": {
+            "ip": "10.0.9.9/24",
+            "mac": "08:00:00:00:09:99",
+            "commands": [
+                "route add default gw 10.0.9.90 dev eth0",
+                "arp -i eth0 -s 10.0.9.90 08:00:00:00:09:00"
+            ]
+        }
+    },
+    "switches": {
+        "s1": {
+            "runtime_json": "complex-topo/s1-runtime.json"
+        },
+        "s2": {
+            "runtime_json": "complex-topo/s2-runtime.json"
+        },
+        "r1": {
+            "runtime_json": "complex-topo/r1-runtime.json"
+        },
+        "r2": {
+            "runtime_json": "complex-topo/r2-runtime.json"
+        },
+        "r3": {
+            "runtime_json": "complex-topo/r3-runtime.json"
+        },
+        "r4": {
+            "runtime_json": "complex-topo/r4-runtime.json"
+        },
+        "l1": {
+            "runtime_json": "complex-topo/l1-runtime.json"
+        },
+        "l2": {
+            "runtime_json": "complex-topo/l2-runtime.json"
+        },
+        "l3": {
+            "runtime_json": "complex-topo/l3-runtime.json"
+        }
+    },
+    "links": [
+        [
+            "h1",
+            "s1-p1"
+        ],
+        [
+            "h2",
+            "s1-p2"
+        ],
+        [
+            "s1-p3",
+            "r1-p1"
+        ],
+        [
+            "r1-p2",
+            "r2-p1"
+        ],
+        [
+            "r2-p2",
+            "r3-p1"
+        ],
+        [
+            "r3-p2",
+            "s2-p3"
+        ],
+        [
+            "h3",
+            "s2-p1"
+        ],
+        [
+            "h4",
+            "s2-p2"
+        ],
+        [
+            "r2-p3",
+            "r4-p1"
+        ],
+        [
+            "h5",
+            "r4-p2"
+        ],
+        [
+            "r4-p3",
+            "l1-p1"
+        ],
+        [
+            "l1-p2",
+            "l2-p1"
+        ],
+        [
+            "h6",
+            "l2-p2"
+        ],
+        [
+            "h7",
+            "l2-p3"
+        ],
+        [
+            "l1-p3",
+            "l3-p1"
+        ],
+        [
+            "h8",
+            "l3-p2"
+        ],
+        [
+            "h9",
+            "l3-p3"
+        ]
+    ]
+}
