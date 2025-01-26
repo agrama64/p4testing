@@ -5,6 +5,8 @@ import time
 
 net = Mininet()
 
+print(net.hosts)
+
 h1 = net.get('h1')
 h2 = net.get('h2')
 
