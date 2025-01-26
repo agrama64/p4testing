@@ -34,7 +34,7 @@
         "action_params": {
           "dstAddr": "08:00:00:00:05:00",
           "srcIpAddr": "10.0.6.6",
-          "port": 1
+          "port": 3
         }
       },
       {
@@ -46,7 +46,7 @@
         "action_params": {
           "dstAddr": "08:00:00:00:04:00",
           "srcIpAddr": "10.0.6.6",
-          "port": 1
+          "port": 3
         }
       },
       {
@@ -58,7 +58,7 @@
         "action_params": {
           "dstAddr": "08:00:00:00:03:00",
           "srcIpAddr": "10.0.6.6",
-          "port": 1
+          "port": 3
         }
       },
       {
@@ -70,7 +70,7 @@
         "action_params": {
           "dstAddr": "08:00:00:00:02:00",
           "srcIpAddr": "10.0.6.6",
-          "port": 1
+          "port": 3
         }
       },
       {
@@ -82,7 +82,7 @@
         "action_params": {
           "dstAddr": "08:00:00:00:01:00",
           "srcIpAddr": "10.0.6.6",
-          "port": 1
+          "port": 3
         }
       },
       {
