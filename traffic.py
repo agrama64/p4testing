@@ -1,9 +1,15 @@
 from mininet.net import Mininet
 from mininet.cli import CLI
+from mininet.node import RemoteController
 from random import randint
 import time
 
-net = Mininet()
+controller_ip = '127.0.0.1'
+controller_port = 6653
+
+net = Mininet(controller=RemoteController)
+net.addController('c0', controller=RemoteController, ip=controller_ip, port=controller_port)
+
 
 print(net.hosts)
 
