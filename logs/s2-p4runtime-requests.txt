@@ -1,10 +1,10 @@
 
-[2025-01-25 07:14:07.404] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+[2025-01-27 01:03:00.347] /p4.v1.P4Runtime/SetForwardingPipelineConfig
 ---
 Message too long (10000 bytes)! Skipping log...
 ---
 
-[2025-01-25 07:14:07.408] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.350] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -26,69 +26,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.409] /p4.v1.P4Runtime/Write
----
-device_id: 1
-election_id {
-  low: 1
-}
-updates {
-  type: INSERT
-  entity {
-    table_entry {
-      table_id: 45010450
-      match {
-        field_id: 1
-        exact {
-          value: "\010\000\000\000\001\021"
-        }
-      }
-      action {
-        action {
-          action_id: 30498303
-          params {
-            param_id: 1
-            value: "\000\003"
-          }
-        }
-      }
-    }
-  }
-}
----
-
-[2025-01-25 07:14:07.410] /p4.v1.P4Runtime/Write
----
-device_id: 1
-election_id {
-  low: 1
-}
-updates {
-  type: INSERT
-  entity {
-    table_entry {
-      table_id: 45010450
-      match {
-        field_id: 1
-        exact {
-          value: "\010\000\000\000\002\""
-        }
-      }
-      action {
-        action {
-          action_id: 30498303
-          params {
-            param_id: 1
-            value: "\000\003"
-          }
-        }
-      }
-    }
-  }
-}
----
-
-[2025-01-25 07:14:07.411] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.351] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -119,7 +57,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.412] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.352] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -150,7 +88,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.413] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.352] /p4.v1.P4Runtime/Write
 ---
 device_id: 1
 election_id {
@@ -164,131 +102,7 @@ updates {
       match {
         field_id: 1
         exact {
-          value: "\010\000\000\000\005U"
-        }
-      }
-      action {
-        action {
-          action_id: 30498303
-          params {
-            param_id: 1
-            value: "\000\003"
-          }
-        }
-      }
-    }
-  }
-}
----
-
-[2025-01-25 07:14:07.413] /p4.v1.P4Runtime/Write
----
-device_id: 1
-election_id {
-  low: 1
-}
-updates {
-  type: INSERT
-  entity {
-    table_entry {
-      table_id: 45010450
-      match {
-        field_id: 1
-        exact {
-          value: "\010\000\000\000\006f"
-        }
-      }
-      action {
-        action {
-          action_id: 30498303
-          params {
-            param_id: 1
-            value: "\000\003"
-          }
-        }
-      }
-    }
-  }
-}
----
-
-[2025-01-25 07:14:07.414] /p4.v1.P4Runtime/Write
----
-device_id: 1
-election_id {
-  low: 1
-}
-updates {
-  type: INSERT
-  entity {
-    table_entry {
-      table_id: 45010450
-      match {
-        field_id: 1
-        exact {
-          value: "\010\000\000\000\007w"
-        }
-      }
-      action {
-        action {
-          action_id: 30498303
-          params {
-            param_id: 1
-            value: "\000\003"
-          }
-        }
-      }
-    }
-  }
-}
----
-
-[2025-01-25 07:14:07.415] /p4.v1.P4Runtime/Write
----
-device_id: 1
-election_id {
-  low: 1
-}
-updates {
-  type: INSERT
-  entity {
-    table_entry {
-      table_id: 45010450
-      match {
-        field_id: 1
-        exact {
-          value: "\010\000\000\000\010\210"
-        }
-      }
-      action {
-        action {
-          action_id: 30498303
-          params {
-            param_id: 1
-            value: "\000\003"
-          }
-        }
-      }
-    }
-  }
-}
----
-
-[2025-01-25 07:14:07.416] /p4.v1.P4Runtime/Write
----
-device_id: 1
-election_id {
-  low: 1
-}
-updates {
-  type: INSERT
-  entity {
-    table_entry {
-      table_id: 45010450
-      match {
-        field_id: 1
-        exact {
-          value: "\010\000\000\000\t\231"
+          value: "\010\000\000\000\003\000"
         }
       }
       action {
