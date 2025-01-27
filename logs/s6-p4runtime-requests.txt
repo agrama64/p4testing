@@ -1,10 +1,10 @@
 
-[2025-01-25 07:14:07.467] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+[2025-01-27 01:03:00.398] /p4.v1.P4Runtime/SetForwardingPipelineConfig
 ---
 Message too long (16289 bytes)! Skipping log...
 ---
 
-[2025-01-25 07:14:07.472] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.402] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -26,7 +26,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.474] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.403] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -62,7 +62,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.475] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.404] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -76,7 +76,7 @@ updates {
       match {
         field_id: 1
         lpm {
-          value: "\n\000\002\002"
+          value: "\n\000\001\002"
           prefix_len: 32
         }
       }
@@ -98,7 +98,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.476] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.404] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -134,7 +134,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.478] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.405] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -148,7 +148,7 @@ updates {
       match {
         field_id: 1
         lpm {
-          value: "\n\000\004\004"
+          value: "\n\000\003\004"
           prefix_len: 32
         }
       }
@@ -170,7 +170,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.479] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.406] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -206,7 +206,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.479] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.407] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -242,7 +242,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.480] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.407] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -278,7 +278,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.481] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.408] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
@@ -314,7 +314,7 @@ updates {
 }
 ---
 
-[2025-01-25 07:14:07.482] /p4.v1.P4Runtime/Write
+[2025-01-27 01:03:00.409] /p4.v1.P4Runtime/Write
 ---
 device_id: 5
 election_id {
