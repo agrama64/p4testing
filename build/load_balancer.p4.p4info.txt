@@ -39,7 +39,7 @@ tables {
   match_fields {
     id: 1
     name: "reg_val"
-    bitwidth: 2
+    bitwidth: 1
     match_type: EXACT
   }
   action_refs {
@@ -130,7 +130,7 @@ registers {
   type_spec {
     bitstring {
       bit {
-        bitwidth: 2
+        bitwidth: 1
       }
     }
   }
