@@ -212,58 +212,38 @@ class ExerciseRunner:
         # stop right after the CLI is exited
         self.net.stop()
     
-    # def generate_traffic(self, duration=5, udp=False, bandwidth="10M"):
-    #     """ Simulates iperf traffic between multiple hosts. 
-    #         - mode: 'random' (random pairs) or 'mesh' (all-to-all).
-    #         - duration: duration of each traffic session (in seconds).
-    #         - udp: whether to use UDP instead of TCP.
-    #         - bandwidth: UDP bandwidth limit (e.g., '10M' for 10 Mbps).
-    #     """
-    #     self.logger("Starting iperf traffic simulation.")
-
-    #     hosts = [self.net.get(f'h{i}') for i in range(1, 10)]  # Get all 10 hosts
-
-    #     # Start iperf servers on all hosts
-    #     for server in hosts:
-    #         server.cmd('iperf -s -D')  # Run iperf in daemon mode
-    #         self.logger(f"Started iperf server on {server.name}")
-
-    #     sleep(2)  # Allow servers to start
-
-    #     for client in hosts:
-    #         for server in hosts:
-    #             if client != server:
-    #                 protocol = "-u" if udp else ""
-    #                 bw = f"-b {bandwidth}" if udp else ""
-
-    #                 self.logger(f"{client.name} -> {server.name} ({'UDP' if udp else 'TCP'})")
-    #                 client.cmd(f'iperf -c {server.IP()} {protocol} {bw} -t {duration} &')
-    #     sleep(duration + 2)  # Ensure traffic completes
-    #     # Stop iperf servers
-    #     for server in hosts:
-    #         server.cmd('killall -9 iperf')
-
-    #     self.logger("Iperf traffic simulation completed.")
-
-    def generate_traffic(self, udp=False):
-        """ Simulates single-packet traffic between multiple hosts. 
+    def generate_traffic(self, duration=1, udp=False, bandwidth="10M"):
+        """ Simulates iperf traffic between multiple hosts. 
+            - mode: 'random' (random pairs) or 'mesh' (all-to-all).
+            - duration: duration of each traffic session (in seconds).
             - udp: whether to use UDP instead of TCP.
+            - bandwidth: UDP bandwidth limit (e.g., '10M' for 10 Mbps).
         """
-        self.logger("Starting single-packet traffic simulation.")
+        self.logger("Starting iperf traffic simulation.")
 
         hosts = [self.net.get(f'h{i}') for i in range(1, 10)]  # Get all 10 hosts
+
+        # Start iperf servers on all hosts
+        for server in hosts:
+            server.cmd('iperf -s -D')  # Run iperf in daemon mode
+            self.logger(f"Started iperf server on {server.name}")
+
+        sleep(2)  # Allow servers to start
 
         for client in hosts:
             for server in hosts:
                 if client != server:
-                    protocol = "--udp" if udp else "-S"  # UDP or TCP SYN packet
+                    protocol = "-u" if udp else ""
+                    bw = f"-b {bandwidth}" if udp else ""
+
                     self.logger(f"{client.name} -> {server.name} ({'UDP' if udp else 'TCP'})")
+                    client.cmd(f'iperf -c {server.IP()} {protocol} {bw} -t {duration} &')
+        sleep(duration + 2)  # Ensure traffic completes
+        # Stop iperf servers
+        for server in hosts:
+            server.cmd('killall -9 iperf')
 
-                    # Send exactly one packet
-                    client.cmd(f'hping3 {protocol} -c 1 {server.IP()} &')
-
-        sleep(2)  # Allow packets to be sent
-        self.logger("Single-packet traffic simulation completed.")
+        self.logger("Iperf traffic simulation completed.")
 
     def parse_links(self, unparsed_links):
         """ Given a list of links descriptions of the form [node1, node2, latency, bandwidth]
