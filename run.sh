@@ -1,3 +1,4 @@
+./move.sh
 make clean
 make run
 ./correct.sh

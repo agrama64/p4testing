@@ -1,10 +1,10 @@
 
-[2025-01-27 01:03:00.482] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+[2025-01-29 08:09:01.253] /p4.v1.P4Runtime/SetForwardingPipelineConfig
 ---
 Message too long (31764 bytes)! Skipping log...
 ---
 
-[2025-01-27 01:03:00.491] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.261] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -26,7 +26,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.493] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.262] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -54,7 +54,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.494] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.262] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -82,7 +82,87 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.495] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.263] /p4.v1.P4Runtime/Write
+---
+device_id: 9
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 37375156
+      match {
+        field_id: 1
+        lpm {
+          value: "\n\000\006\006"
+          prefix_len: 32
+        }
+      }
+      action {
+        action {
+          action_id: 29683729
+          params {
+            param_id: 1
+            value: "\010\000\000\000\006\000"
+          }
+          params {
+            param_id: 2
+            value: "\n\000\010\010"
+          }
+          params {
+            param_id: 3
+            value: "\000\003"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2025-01-29 08:09:01.264] /p4.v1.P4Runtime/Write
+---
+device_id: 9
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 37375156
+      match {
+        field_id: 1
+        lpm {
+          value: "\n\000\007\007"
+          prefix_len: 32
+        }
+      }
+      action {
+        action {
+          action_id: 29683729
+          params {
+            param_id: 1
+            value: "\010\000\000\000\007\000"
+          }
+          params {
+            param_id: 2
+            value: "\n\000\010\010"
+          }
+          params {
+            param_id: 3
+            value: "\000\003"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2025-01-29 08:09:01.265] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -122,7 +202,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.497] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.266] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -162,7 +242,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.498] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.267] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -202,7 +282,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.498] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.268] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -242,7 +322,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.499] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.269] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -282,7 +362,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.500] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.270] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {
@@ -317,7 +397,7 @@ updates {
 }
 ---
 
-[2025-01-27 01:03:00.501] /p4.v1.P4Runtime/Write
+[2025-01-29 08:09:01.271] /p4.v1.P4Runtime/Write
 ---
 device_id: 9
 election_id {

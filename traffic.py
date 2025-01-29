@@ -212,7 +212,7 @@ class ExerciseRunner:
         # stop right after the CLI is exited
         self.net.stop()
     
-    def generate_traffic(self, duration=5, udp=False, bandwidth="10M"):
+    def generate_traffic(self, duration=3, udp=False, bandwidth="10M"):
         """ Simulates iperf traffic between multiple hosts. 
             - mode: 'random' (random pairs) or 'mesh' (all-to-all).
             - duration: duration of each traffic session (in seconds).
