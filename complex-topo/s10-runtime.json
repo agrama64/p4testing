@@ -34,7 +34,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:06:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 6
+        "port": 3
       }
     },
     {
@@ -46,7 +46,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:07:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 6
+        "port": 3
       }
     },
     {
@@ -58,7 +58,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:05:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 6
+        "port": 3
       }
     },
     {
@@ -70,7 +70,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:04:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 5
+        "port": 3
       }
     },
     {
@@ -82,7 +82,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:03:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 5
+        "port": 3
       }
     },
     {
@@ -94,7 +94,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:02:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 5
+        "port": 3
       }
     },
     {
@@ -106,7 +106,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:01:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 5
+        "port": 3
       }
     },
     {
@@ -124,28 +124,6 @@
       "table": "MyIngress.forward_balanced",
       "match": {
         "reg_val": 1
-      },
-      "action_name": "MyIngress.forward_inward",
-      "action_params": {
-        "dstAddr": "08:00:00:00:09:99",
-        "dstIpAddr": "10.0.9.9"
-      }
-    },
-    {
-      "table": "MyIngress.forward_balanced",
-      "match": {
-        "reg_val": 2
-      },
-      "action_name": "MyIngress.forward_inward",
-      "action_params": {
-        "dstAddr": "08:00:00:00:08:88",
-        "dstIpAddr": "10.0.8.8"
-      }
-    },
-    {
-      "table": "MyIngress.forward_balanced",
-      "match": {
-        "reg_val": 3
       },
       "action_name": "MyIngress.forward_inward",
       "action_params": {
