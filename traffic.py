@@ -212,25 +212,40 @@ class ExerciseRunner:
         # stop right after the CLI is exited
         self.net.stop()
     
-    def generate_traffic(self):
-        """ Generates network traffic between hosts using iperf or ping. """
-        self.logger("Starting network traffic generation.")
-        
-        server_host = self.net.get('h1')  # Choose a host as server
-        client_host = self.net.get('h2')  # Choose a host as client
+    def generate_traffic(self, duration=5, udp=False, bandwidth="10M"):
+        """ Simulates iperf traffic between multiple hosts. 
+            - mode: 'random' (random pairs) or 'mesh' (all-to-all).
+            - duration: duration of each traffic session (in seconds).
+            - udp: whether to use UDP instead of TCP.
+            - bandwidth: UDP bandwidth limit (e.g., '10M' for 10 Mbps).
+        """
+        self.logger("Starting iperf traffic simulation.")
 
-        # Start iperf server
-        server_host.cmd('iperf -s -D')  # Run iperf in daemon mode
-        
-        sleep(1)  # Give some time for the server to start
+        hosts = [self.net.get(f'h{i}') for i in range(1, 11)]  # Get all 10 hosts
 
-        # Run iperf client
-        client_output = client_host.cmd('iperf -c {} -t 10'.format(server_host.IP()))
-        self.logger("Client output:\n", client_output)
+        # Start iperf servers on all hosts
+        for server in hosts:
+            server.cmd('iperf -s -D')  # Run iperf in daemon mode
+            self.logger(f"Started iperf server on {server.name}")
 
-        # Alternatively, simple ping test:
-        ping_output = client_host.cmd('ping -c 5 {}'.format(server_host.IP()))
-        self.logger("Ping output:\n", ping_output)
+        sleep(2)  # Allow servers to start
+
+        for client in hosts:
+            for server in hosts:
+                if client != server:
+                    protocol = "-u" if udp else ""
+                    bw = f"-b {bandwidth}" if udp else ""
+
+                    self.logger(f"{client.name} -> {server.name} ({'UDP' if udp else 'TCP'})")
+                    client.cmd(f'iperf -c {server.IP()} {protocol} {bw} -t {duration} &')
+
+        sleep(duration + 2)  # Ensure traffic completes
+
+        # Stop iperf servers
+        for server in hosts:
+            server.cmd('killall -9 iperf')
+
+        self.logger("Iperf traffic simulation completed.")
 
     def parse_links(self, unparsed_links):
         """ Given a list of links descriptions of the form [node1, node2, latency, bandwidth]
