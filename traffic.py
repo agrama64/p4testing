@@ -238,9 +238,7 @@ class ExerciseRunner:
 
                     self.logger(f"{client.name} -> {server.name} ({'UDP' if udp else 'TCP'})")
                     client.cmd(f'iperf -c {server.IP()} {protocol} {bw} -t {duration} &')
-        print("AAA")
         sleep(duration + 2)  # Ensure traffic completes
-        print("dddd")
         # Stop iperf servers
         for server in hosts:
             server.cmd('killall -9 iperf')
