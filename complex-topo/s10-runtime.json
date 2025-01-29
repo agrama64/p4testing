@@ -34,7 +34,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:06:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 5
+        "port": 6
       }
     },
     {
@@ -46,7 +46,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:07:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 5
+        "port": 6
       }
     },
     {
@@ -58,7 +58,7 @@
       "action_params": {
         "dstAddr": "08:00:00:00:05:00",
         "srcIpAddr": "10.0.8.8",
-        "port": 5
+        "port": 6
       }
     },
     {
