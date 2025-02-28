@@ -221,7 +221,7 @@ class ExerciseRunner:
         """
         self.logger("Starting iperf traffic simulation.")
 
-        hosts = [self.net.get(f'h{i}') for i in range(1, 10)]  # Get all 10 hosts
+        hosts = [self.net.get(f'h{i}') for i in range(1, 3)]  # Get all 3 hosts
 
         # Start iperf servers on all hosts
         for server in hosts:
