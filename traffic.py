@@ -225,8 +225,8 @@ class ExerciseRunner:
 
         hosts = [self.net.get(f'h{i}') for i in range(1, self.num_routers + 1)]  # Get all hosts
 
-        # we are running n^2 different pairs so we want to distribute the duration equally between them
-        duration = self.total_duration / (self.num_routers ** 2) 
+        # we are running n(n-1) different pairs so we want to distribute the duration equally between them
+        duration = self.total_duration / (self.num_routers * (self.num_routers - 1)) 
 
         # Start iperf servers on all hosts
         for server in hosts:
