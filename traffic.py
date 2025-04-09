@@ -156,7 +156,7 @@ class ExerciseRunner:
 
 
     def __init__(self, topo_file, log_dir, pcap_dir,
-                       switch_json, bmv2_exe='simple_switch', quiet=False):
+                       switch_json, bmv2_exe='simple_switch', quiet=False, num_routers, total_duration):
         """ Initializes some attributes and reads the topology json. Does not
             actually run the exercise. Use run_exercise() for that.
 
@@ -177,6 +177,8 @@ class ExerciseRunner:
         self.hosts = topo['hosts']
         self.switches = topo['switches']
         self.links = self.parse_links(topo['links'])
+        self.num_routers = num_routers
+        self.total_duration = total_duration
 
         # Ensure all the needed directories exist and are directories
         for dir_name in [log_dir, pcap_dir]:
@@ -212,7 +214,7 @@ class ExerciseRunner:
         # stop right after the CLI is exited
         self.net.stop()
     
-    def generate_traffic(self, duration=1, udp=False, bandwidth="10M"):
+    def generate_traffic(self, udp=False, bandwidth="10M"):
         """ Simulates iperf traffic between multiple hosts. 
             - mode: 'random' (random pairs) or 'mesh' (all-to-all).
             - duration: duration of each traffic session (in seconds).
@@ -221,7 +223,10 @@ class ExerciseRunner:
         """
         self.logger("Starting iperf traffic simulation.")
 
-        hosts = [self.net.get(f'h{i}') for i in range(1, 3)]  # Get all 3 hosts
+        hosts = [self.net.get(f'h{i}') for i in range(1, num_routers + 1)]  # Get all hosts
+
+        # we are running n^2 different pairs so we want to distribute the duration equally between them
+        duration = self.total_duration / (num_routers ** 2) 
 
         # Start iperf servers on all hosts
         for server in hosts:
@@ -238,6 +243,7 @@ class ExerciseRunner:
 
                     self.logger(f"{client.name} -> {server.name} ({'UDP' if udp else 'TCP'})")
                     client.cmd(f'iperf -c {server.IP()} {protocol} {bw} -t {duration} &')
+        
         sleep(duration + 2)  # Ensure traffic completes
         # Stop iperf servers
         for server in hosts:
@@ -413,6 +419,8 @@ def get_args():
     parser.add_argument('-j', '--switch_json', type=str, required=False)
     parser.add_argument('-b', '--behavioral-exe', help='Path to behavioral executable',
                                 type=str, required=False, default='simple_switch')
+    parse.add_argument('-n', '--num_routers', type=int, required=True)
+    parse.add_argument('-d', '--total_duration', type=float, required=True)
     return parser.parse_args()
 
 
@@ -422,6 +430,6 @@ if __name__ == '__main__':
 
     args = get_args()
     exercise = ExerciseRunner(args.topo, args.log_dir, args.pcap_dir,
-                              args.switch_json, args.behavioral_exe, args.quiet)
+                              args.switch_json, args.behavioral_exe, args.quiet, args.num_routers, args.total_duration)
 
     exercise.run_exercise()
