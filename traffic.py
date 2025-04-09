@@ -419,8 +419,8 @@ def get_args():
     parser.add_argument('-j', '--switch_json', type=str, required=False)
     parser.add_argument('-b', '--behavioral-exe', help='Path to behavioral executable',
                                 type=str, required=False, default='simple_switch')
-    parse.add_argument('-n', '--num_routers', type=int, required=True)
-    parse.add_argument('-d', '--total_duration', type=float, required=True)
+    parser.add_argument('-n', '--num_routers', type=int, required=True)
+    parser.add_argument('-d', '--total_duration', type=float, required=True)
     return parser.parse_args()
 
 
