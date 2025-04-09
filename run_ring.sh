@@ -18,3 +18,5 @@ make clean
 make run
 sudo PATH=/home/p4/p4dev-python-venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python python3 ../../utils/traffic.py -t ${num_routers}_ring_topo/topology.json -j build/basic.json -b simple_switch_grpc -n ${num_routers} -d ${total_duration}
 cp -r pcaps "${num_routers}_ring_tcp/"
+mkdir ${num_routers}_ring_tcp_logs
+cp -r logs "${num_routers}_ring_tcp_logs/"
