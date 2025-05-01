@@ -10,7 +10,7 @@
         },
         "action_name": "MyIngress.nat_translate_outbound",
         "action_params": {
-          "public_ip": "10.0.0.300"
+          "public_ip": "10.0.0.30"
         }
       },
       {
@@ -20,13 +20,13 @@
         },
         "action_name": "MyIngress.nat_translate_outbound",
         "action_params": {
-          "public_ip": "10.0.0.300"
+          "public_ip": "10.0.0.30"
         }
       },
       {
         "table": "MyIngress.nat_inbound",
         "match": {
-          "hdr.ipv4.dstAddr": "10.0.0.300"
+          "hdr.ipv4.dstAddr": "10.0.0.30"
         },
         "action_name": "MyIngress.nat_translate_inbound",
         "action_params": {
