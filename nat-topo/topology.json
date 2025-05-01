@@ -39,19 +39,19 @@
     },
     "switches": {
         "s1": {
-            "runtime_json": "complex-topo/s1-runtime.json"
+            "runtime_json": "nat-topo/s1-runtime.json"
         },
         "s2": {
-            "runtime_json": "complex-topo/s2-runtime.json"
+            "runtime_json": "nat-topo/s2-runtime.json"
         },
         "s3": {
-            "runtime_json": "complex-topo/s3-runtime.json"
+            "runtime_json": "nat-topo/s3-runtime.json"
         },
         "s4": {
-            "runtime_json": "complex-topo/s4-runtime.json"
+            "runtime_json": "nat-topo/s4-runtime.json"
         },
         "s5": {
-            "runtime_json": "complex-topo/s5-runtime.json"
+            "runtime_json": "nat-topo/s5-runtime.json"
         }
     },
     "links": [
