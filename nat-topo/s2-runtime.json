@@ -1,0 +1,37 @@
+{
+    "target": "bmv2",
+    "p4info": "build/nat.p4.p4info.txtpb", 
+    "bmv2_json": "build/nat.json", 
+    "table_entries": [
+      {
+        "table": "MyIngress.nat_outbound",
+        "match": {
+          "hdr.ipv4.srcAddr": "10.0.1.1"
+        },
+        "action_name": "MyIngress.nat_translate_outbound",
+        "action_params": {
+          "public_ip": "10.0.0.100"
+        }
+      },
+      {
+        "table": "MyIngress.nat_outbound",
+        "match": {
+          "hdr.ipv4.srcAddr": "10.0.1.2"
+        },
+        "action_name": "MyIngress.nat_translate_outbound",
+        "action_params": {
+          "public_ip": "10.0.0.100"
+        }
+      },
+      {
+        "table": "MyIngress.nat_inbound",
+        "match": {
+          "hdr.ipv4.dstAddr": "10.0.0.100"
+        },
+        "action_name": "MyIngress.nat_translate_inbound",
+        "action_params": {
+          "private_ip": "10.0.1.1"
+        }
+      }
+    ]
+  }

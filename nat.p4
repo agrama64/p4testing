@@ -34,11 +34,11 @@ parser MyParser(packet_in packet,
                 out headers hdr,
                 inout metadata meta,
                 inout standard_metadata_t standard_metadata) {
-    
+
     state start {
         transition parse_ethernet;
     }
-    
+
     state parse_ethernet {
         packet.extract(hdr.ethernet);
         transition select(hdr.ethernet.etherType) {
@@ -46,7 +46,7 @@ parser MyParser(packet_in packet,
             default: accept;
         }
     }
-    
+
     state parse_ipv4 {
         packet.extract(hdr.ipv4);
         transition accept;
@@ -60,53 +60,54 @@ control MyVerifyChecksum(inout headers hdr, inout metadata meta) {
 control MyIngress(inout headers hdr,
                   inout metadata meta,
                   inout standard_metadata_t standard_metadata) {
-    
+
     action drop() {
         mark_to_drop(standard_metadata);
     }
-    
+
     // *** NAT ACTIONS ***
-    
+
     // NAT translation action for outbound traffic
-    action nat_translate_outbound(bit<32> public_ip, bit<16> public_port) {
+    // Removed unused public_port parameter
+    action nat_translate_outbound(bit<32> public_ip) {
         // Store original IP/port in metadata for reverse translation if needed
-        
+
         // Modify source IP to public IP
         hdr.ipv4.srcAddr = public_ip;
-        
+
         // Update checksum (will be recomputed later)
         hdr.ipv4.hdrChecksum = 0;
-        
+
         // *** FORWARDING LOGIC ADDED HERE ***
         // Forward outbound traffic to external network interface
         standard_metadata.egress_spec = 2;  // Send to external network (port 2)
     }
-    
+
     // NAT translation action for inbound traffic
     action nat_translate_inbound(bit<32> private_ip) {
         // Modify destination IP to private IP
         hdr.ipv4.dstAddr = private_ip;
-        
+
         // Update checksum (will be recomputed later)
         hdr.ipv4.hdrChecksum = 0;
-        
+
         // *** FORWARDING LOGIC ADDED HERE ***
         // Forward inbound traffic to internal network interface
         standard_metadata.egress_spec = 1;  // Send to internal network (port 1)
     }
-    
+
     table nat_outbound {
         key = {
             hdr.ipv4.srcAddr: exact;
             // Would include transport protocol and port in real implementation
         }
         actions = {
-            nat_translate_outbound;
+            nat_translate_outbound; // Action signature updated implicitly
             drop;
         }
         size = 1024;
     }
-    
+
     table nat_inbound {
         key = {
             hdr.ipv4.dstAddr: exact;
@@ -118,27 +119,27 @@ control MyIngress(inout headers hdr,
         }
         size = 1024;
     }
-    
+
     // *** NEW DEFAULT FORWARDING ACTION ***
     // This is used if no NAT translation is performed but we still want to forward
     action forward_packet(bit<9> egress_port) {
         standard_metadata.egress_spec = egress_port;
     }
-    
+
     apply {
         if (hdr.ipv4.isValid()) {
             // Decrement TTL
             hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
-            
+
             // If packet from internal network to external
             if (standard_metadata.ingress_port == 1) {
                 nat_outbound.apply();
-            } 
+            }
             // If packet from external network to internal
             else if (standard_metadata.ingress_port == 2) {
                 nat_inbound.apply();
             }
-            
+
             // *** CATCH ALL FORWARDING ***
             // If the packet hasn't been assigned an egress port yet
             // (which would happen if it didn't match a NAT rule)
@@ -153,7 +154,7 @@ control MyIngress(inout headers hdr,
                     drop();
                 }
             }
-            
+
             // Drop packet if TTL reaches zero
             if (hdr.ipv4.ttl == 0) {
                 drop();
