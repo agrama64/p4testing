@@ -11,6 +11,7 @@ num_routers=$(( 2**$num_layers - 1 ))
 
 rm -r ${num_layers}_layer_tree_tcp
 rm -r ${num_layers}_layer_tree_topo
+rm -r ${num_layers}_layer_tree_tcp_logs
 
 python gen_tree.py ${num_layers}
 
