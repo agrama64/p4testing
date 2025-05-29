@@ -20,6 +20,8 @@ echo "Running with num_routers=$num_routers and total_duration=$total_duration"
 make clean
 make run
 sudo PATH=/home/p4/p4dev-python-venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python python3 ../../utils/traffic.py -t ${num_layers}_layer_tree_topo/topology.json -j build/basic.json -b simple_switch_grpc -n ${num_routers} -d ${total_duration}
+mkdir ${num_layers}_layer_tree_tcp
 cp -r pcaps "${num_layers}_layer_tree_tcp/"
+cp "${num_layers}_layer_tree_topo/topo" "${num_layers}_layer_tree_tcp/"
 mkdir ${num_layers}_layer_tree_tcp_logs
 cp -r logs "${num_layers}_layer_tree_tcp_logs/"
